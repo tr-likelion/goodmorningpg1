@@ -80,3 +80,54 @@ li.nav-menu a{
 	display:none;
 	background:#FFF;
 }
+
+.navbar-nav li a{
+	cursor:pointer;
+	background-color:#fff;
+}
+
+@media (max-width:991px) {
+	.show_mobile {
+		display:block;
+	}
+	.show_web {
+		display:none;
+	}
+
+	.navbar-nav .nav-menu{
+		width:80%;
+		height:40px;
+		text-align:center;
+	}
+	.user-nav{
+		width:80%;
+		margin-left:auto;
+		margin-right:auto;
+	}
+	.user-nav li{
+		text-align:center;
+		background-color: #FFF;
+		padding-top: 5px;
+		padding-bottom: 5px;
+	}
+	.nav li{
+		position:relative;
+	}
+	ul.nav.navbar-nav {
+		margin:0;
+	}
+	.nav-menu{
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+@media (min-width:992px) {
+	.show_mobile {
+		display:none;
+	}
+	.show_web {
+		display:block;
+	}
+}
+
