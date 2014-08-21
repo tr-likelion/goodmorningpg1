@@ -3,13 +3,30 @@
 	<!-- Brand and toggle get grouped for better mobile display -->
 	<!-- navbar 버튼 -->
 	<div class="navbar-header">
-	  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-		<span class="sr-only">Toggle navigation</span>
-		<span class="icon-bar"></span>
-		<span class="icon-bar"></span>
-		<span class="icon-bar"></span>
-	  </button>
-	  <a class="navbar-brand" href="{{ url_for('article_list')}}">MyMornigs.com</a>
+		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+			<span class="sr-only">Toggle navigation</span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+	  	</button>
+
+	  	<a class="navbar-brand example_3" href="{{ url_for('article_list')}}">
+	  		MyMornings.com
+	  	</a>
+
+	  	<div class = "navbar-brand example_2">
+	  		<a href="">
+	  			<div class = "navbar-brand example">
+	  				샘플화면
+	  			</div>
+	  		</a>
+	  		
+	  		<a href="">
+	  			<div class = "navbar-brand example">
+	  				사용법/QnA
+	  			</div>
+	  		</a>
+	  	</div>
 	</div>
 
 	<!-- Collect the nav links, forms, and other content for toggling -->
@@ -26,7 +43,25 @@
 					{% endif%}
 					</li>
 				</div>
+				<!--예비용 div -->
+				<!--
+				<div class = "navbar-right example"></div>
+				<div class = "navbar-right example"></div>
+				-->
 			</ul>
+        <!---->
+        <!--이페이지를 홈페이지로-->
+        <!---->
+			<ul class="nav navbar-nav navbar-right">
+          		<li class="nav-menu">
+            		<a href="javascript:;" onclick="this.style.behavior = 'url(#default#homepage)'; this.setHomePage('http://mymornings.com');" class="">
+              			<img src="{{ url_for('static', filename='images/make_homepage.png') }}" class="nav-menu-img show_web">
+	            		<div class="show_mobile">
+	            			이 페이지를 홈페이지로
+	            		</div> 
+	            	</a>           		
+          		</li>
+        	</ul>			
 			{% if g.user_name %}
 		<!---->
         <!--새페이지만들기 메뉴-->
@@ -82,25 +117,27 @@
 	            			페이지 편집하기
 	            		</div>
 	            	</a>
-	            	<div class="toolbar">
-	                각종 편집툴 넣을 예정
-	            	</div>
 	          	</li>
 	        </ul>
+        	<div class="nav navbar-nav navbar-right toolbar">
+	          	<div class="nav-menu">
+	            	<a href="">
+	              		<img src="{{ url_for('static', filename='images/edit_layout.png') }}" class="nav-menu-img tool show_web">
+	              	</a>
+	              	<a href="">
+	            		<img src="{{ url_for('static', filename='images/edit_bookmark.png') }}" class="nav-menu-img tool show_web">
+	            	</a>
+	            	<a href="">
+	            		<img src="{{ url_for('static', filename='images/edit_widget.png') }}" class="nav-menu-img tool show_web">
+	            	</a>
+	            	
+	            	<a href="">
+	            		<img src="{{ url_for('static', filename='images/edit_background.png') }}" class="nav-menu-img tool show_web">
+	            	</a>
+	          	</div>
+	        </div>	        
 			{% endif %}
-        <!---->
-        <!--이페이지를 홈페이지로-->
-        <!---->
-			<ul class="nav navbar-nav navbar-right">
-          		<li class="nav-menu">
-            		<a href="javascript:;" onclick="this.style.behavior = 'url(#default#homepage)'; this.setHomePage('http://mymornings.com');" class="">
-              			<img src="{{ url_for('static', filename='images/make_homepage.png') }}" class="nav-menu-img show_web">
-	            		<div class="show_mobile">
-	            			이 페이지를 홈페이지로
-	            		</div> 
-	            	</a>           		
-          		</li>
-        	</ul>        	
+        	
 	</div><!-- /.navbar-collapse -->
   <!--</div>--><!-- /.container-fluid -->
 </nav>
