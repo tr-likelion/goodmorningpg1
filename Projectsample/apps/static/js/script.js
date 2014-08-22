@@ -2,4 +2,8 @@ $(document).ready(function(){
 	$('.edit_menu').click(function(){
 		$('.toolbar').toggle('slide',{direction:'right'},'slow');
 	});
+	$('.hide-nav').click(function(){
+		$('.navbar-fixed-top').toggle('blind','slow');
+		$('.hide-menu').toggle('blind','slow');
+	});
 });
