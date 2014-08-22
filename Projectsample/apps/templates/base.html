@@ -3,13 +3,13 @@
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Likelion Flaskr</title>
-
+    <title>나만의 시작페이지, My Mornings</title>
+    
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/summernote.css') }}">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" /> 
     {% block favicon %}
         <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}"/>
     {% endblock %}
@@ -19,6 +19,8 @@
 
 {% block scripts %}
     <script src="{{ url_for('static', filename='js/jquery-1.11.1.min.js') }}"></script>
+    <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
     <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
     <script src="{{ url_for('static', filename='js/base.js') }}"></script>
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
@@ -26,4 +28,5 @@
 {% endblock %}
 </body>
 </html>
+
 
