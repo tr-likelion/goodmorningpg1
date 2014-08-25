@@ -17,7 +17,8 @@
 	margin: 10px 0px 0px 0px;
 }
 .navbar-fixed-top {
-	background-color: rgba(244,244,244,0.5);
+	background-color: rgba(178,216,225,0.5);
+	top:20px;
 }
 
 .user-nav {
@@ -81,6 +82,22 @@ li.nav-menu a{
 	cursor:pointer;
 	background-color:#fff;
 }
+.background-container{
+	margin:0px;
+	padding:0px;
+}
+.hide-nav{
+	position:fixed;
+	top:0
+	left:0;
+	width:100%;
+	height:20px;
+	border: 1px solid #B2D8E1;
+	background-color: rgba(178,216,225,0.8);
+	text-align:center;
+	cursor:pointer;
+}
+
 
 @media (max-width:991px) {
 	.show_mobile {
@@ -129,6 +146,7 @@ li.nav-menu a{
 	}
 	.example_2{
 		padding: 0px;
+		padding-left: 12px;
 		height: 30px;
 		margin-top:20px;
 	}
@@ -137,6 +155,9 @@ li.nav-menu a{
 		padding-left: 15px;
 		padding-top: 10px;
 		padding-right: 7px;
+	}
+	.example_4{
+		display:inline-block;
 	}
 }
 
@@ -158,7 +179,7 @@ li.nav-menu a{
 		background-color: #f7e432;
 		height: 20px;
 		width: 65px;
-		margin-left: 15px;
+		margin-left: 5px;
 		text-align: center;
 		float: left;
 		font-size: 11px;
@@ -167,12 +188,16 @@ li.nav-menu a{
 	.example_2{
 		clear:both;
 		padding: 0px;
+		padding-left: 12px;
 		height: 30px;
 	}
 	.example_3{
 		height: 40px;
 		padding-left: 15px;
 		padding-top: 10px;
+	}
+	.example_4{
+		display:inline-block;
 	}
 }
 

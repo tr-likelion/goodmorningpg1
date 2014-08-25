@@ -4,11 +4,12 @@
     {% block navbar %}
         {% include "navbar.html" %}
     {% endblock %}
-
+<div class="background-container">
     <div class="custom-container">
         {% block messages %}
             {% include "messages.html" %}
         {% endblock %}
         {% block contents %}{% endblock %}
     </div>
+</div>
 {% endblock %}
