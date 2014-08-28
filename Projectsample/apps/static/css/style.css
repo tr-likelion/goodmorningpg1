@@ -201,3 +201,6 @@ li.nav-menu a{
 	}
 }
 
+label.error{
+	float:left;
+}

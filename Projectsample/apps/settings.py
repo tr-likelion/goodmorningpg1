@@ -17,7 +17,7 @@ class Config(object):
 class Production(Config):
     debug = True
     CSRF_ENABLED = False
-    ADMIN = "iamminsub@naver.com"
+    ADMIN = "goodmorningpg1@gmail.com"
     SQLALCHEMY_DATABASE_URI = 'mysql+gaerdbms:///blog?instance=goodmorning-page:mymornings'
     migration_directory = 'migrations'
 

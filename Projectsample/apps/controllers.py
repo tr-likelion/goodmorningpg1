@@ -202,58 +202,56 @@ def comment_like(id):
 #
 # @Join controllers
 #
-@app.route('/user/join/', methods=['GET', 'POST'])
-def user_join():
-	form = JoinForm()
-
+@app.route('/user/signup/', methods=['GET', 'POST'])
+def user_signup():
 	if request.method == 'POST':
-		if form.validate_on_submit():
-			user = User(
-				email=form.email.data,
-				password=generate_password_hash(form.password.data),
-				name=form.name.data,
-				join_date = kstime(9)
+		user_data = request.form
+
+		user=User(
+			email = user_data['email'],
+			password=generate_password_hash(user_data['password']),
+			name=user_data['name'],
+			join_date = kstime(9)
 			)
 
-			db.session.add(user)
-			db.session.commit()
+		db.session.add(user)
+		db.session.commit()
 
-			flash(u'가입이 완료 되었습니다.', 'success')
-			return redirect(url_for('article_list'))
+		flash(u'가입이 완료 되었습니다.', 'success')
+		return redirect(url_for('article_list'))
 	#if GET
 	return render_template('user/join.html', form=form, active_tab='user_join')
 #
 # @Login controllers
 #
-@app.route('/login', methods=['GET','POST'])
-def log_in():
-	form = LoginForm()
+@app.route('/signin', methods=['GET','POST'])
+def user_signin():
 
 	if request.method == 'POST':
-	   if form.validate_on_submit():
-			email = form.email.data
-			password = form.password.data
+		user_data = request.form
 
-			try: 
-				user = db.session.query(User).filter(User.email==email).one() 
-				if not check_password_hash(user.password, password): 
-					flash(u'비밀번호가 올바르지 않습니다.', 'danger') 
-					return render_template('user/login.html', form=form, active_tab='log_in') 
-				else: 
-					session.permanent = True 
-					session['user_email'] = user.email 
-					session['user_name'] = user.name 
-					session['user_id'] = user.id
+		email = user_data["email"]
+		password = user_data["password"]
 
-					flash(u'로그인 되었습니다.', 'success')
-					return redirect(url_for('article_list')) 
-			except NoResultFound, e: 
-				flash(u'존재하지 않는 이메일입니다.', 'danger') 
-				return render_template('user/login.html', form=form, active_tab='log_in') 
+		try: 
+			user = db.session.query(User).filter(User.email==email).one() 
+			if not check_password_hash(user.password, password): 
+				flash(u'비밀번호가 올바르지 않습니다.', 'danger') 
+				return render_template('user/login.html', active_tab='log_in') 
+			else: 
+				session.permanent = True 
+				session['user_email'] = user.email 
+				session['user_name'] = user.name 
+				session['user_id'] = user.id
+
+				flash(u'로그인 되었습니다.', 'success')
+				return redirect(url_for('article_list')) 
+		except NoResultFound, e: 
+			flash(u'존재하지 않는 이메일입니다.', 'danger') 
+			return render_template('user/login.html', active_tab='log_in') 
 
 	#if GET
-	return render_template('user/login.html', form = form, active_tab='log_in')
-
+	return render_template('user/login.html', active_tab='log_in')
 
 @app.route('/logout')
 def log_out():
