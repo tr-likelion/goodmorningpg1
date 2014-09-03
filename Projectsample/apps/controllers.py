@@ -65,6 +65,20 @@ def article_list():
 	context['article_list'] = db.session.query(Article, stmt.c.comment_count).outerjoin(stmt, Article.id==stmt.c.article_id).order_by(desc(Article.date_created))
 	# Article 데이터 전부를 받아와서 최신글 순서대로 정렬하여 'article_list' 라는 key값으로 context에 저장한다.
 	#context['article_list'] = Article.query.order_by(desc(Article.date_created)).all()
+	division_row = request.cookies.get('division_row')
+	division_col = request.cookies.get('division_col')
+	url_dic = {}
+	if division_row:
+		division_row = int(division_row)
+		division_col = int(division_col)
+		for i in range(int(division_row)*int(division_col)):
+			url_key = "block_url"+str(i)
+			url = request.cookies.get(url_key)
+			if url:
+				url_dic[url_key] = url
+
+	if division_row or division_col:
+		return render_template("home.html", context=context, active_tab='timeline', division_row = division_row , division_col = division_col,url_dic = url_dic)
 
 	return render_template('home.html', context=context, active_tab='timeline')
 

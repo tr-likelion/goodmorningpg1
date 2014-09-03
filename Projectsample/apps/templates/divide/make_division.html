@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block contents %}
+    <div class="lldivisionCreate">
+        <form role="form" method="post">
+        	<div class="form-group">
+            <label for="article_create_author">가로  : </label>
+            <input type="text" name="col" class="form-control" placeholder = "가로 분할 개수, 최대 4">
+            </div>
+            <div class="form-group">
+            <label for="article_create_author">세로  : </label> 
+            <input type="text" name="row" class="form-control" placeholder = "세로 분할 개수, 최대 4">
+        	</div>
+        	</br>	
+            <button type="submit" class="btn btn-default">화면 분할</button>
+        </form>
+    </div>
+{% endblock %}

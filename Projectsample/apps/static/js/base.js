@@ -61,3 +61,21 @@ $('.llArticleList').on( "click", ".well .btn-warning", function () {
 		}
 	});
 });
+
+$('.division').on( "click", ".block0 .close-button", function () {
+        var cur_item = $(this);
+        $.ajax({
+            url: "/unset_division",
+            dataType:'JSON',
+            data: {
+                block_num : cur_item.children().last().val()
+            },
+            success: function() {
+                var cur_value = cur_item.children().last().text();
+                cur_item.children().last().text(parseInt(cur_value) + 1);
+            },
+            error: function(request,status,error){
+                alert("code:"+request.status+"\n"+"error:"+error);
+            }
+        });
+    });

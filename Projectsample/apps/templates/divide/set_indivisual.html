@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block contents %}
+    <div class="llCommentCreate">
+        <form role="form" method="post"> 
+            <div class="form-group">
+                <label for="article_create_author">url설정</label>
+                <input type="text" name="url" class="form-control" id="article_create_author" placeholder="url을 입력하세요"/>
+            </div>
+            <div class="form-group">
+                <label for="article_create_author">위젯설정</label>
+                <input type="text" name="widget" class="form-control" id="article_create_author" placeholder="위젯을 고르세요"/>
+            </div>
+            <div class="form-group">
+                <input type="hidden" name = "block_num" value = "{{block_num}}"/>
+            </div>
+
+            <button type="submit" class="btn btn-default">설정</button>
+        </form>
+    </div>
+{% endblock %}
