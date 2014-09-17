@@ -68,17 +68,26 @@ def article_list():
 	division_row = request.cookies.get('division_row')
 	division_col = request.cookies.get('division_col')
 	url_dic = {}
+	widget_dic = {}
 	if division_row:
 		division_row = int(division_row)
 		division_col = int(division_col)
 		for i in range(int(division_row)*int(division_col)):
 			url_key = "block_url"+str(i)
 			url = request.cookies.get(url_key)
+			url_img_key = "block_url_img"+str(i)
+			url_img = request.cookies.get(url_img_key)
+			widget_key = "block_widget"+str(i)
+			widget = request.cookies.get(widget_key)
 			if url:
 				url_dic[url_key] = url
+				url_dic[url_img_key] = url_img
+			elif widget:
+				widget_dic[widget_key] = widget
+
 
 	if division_row or division_col:
-		return render_template("home.html", context=context, active_tab='timeline', division_row = division_row , division_col = division_col,url_dic = url_dic)
+		return render_template("home.html", context=context, active_tab='timeline', division_row = division_row , division_col = division_col,url_dic = url_dic, widget_dic = widget_dic)
 
 	return render_template('home.html', context=context, active_tab='timeline')
 

@@ -27,6 +27,8 @@ def make_division():
 		for i in range(int(division_row)*int(division_col)):
 			block_url = "block_url"+str(i)
 			resp.set_cookie(block_url,"")
+			block_url_img = "block_url_img"+str(i)
+			resp.set_cookie(block_url_img,"")
 			block_widget = "block_widget"+str(i)
 			resp.set_cookie(block_widget,"")
 
@@ -88,10 +90,54 @@ def set_block(block_num):
 			flash(u'url 등록이 완료되었습니다.','success')
 		elif widget:
 			block_widget = "block_widget"+str(block_number)
-
-
-		
+			resp.set_cookie(block_widget,widget)
+			flash(u'widget 등록이 완료되었습니다.','success')
+			
 		return resp
+
+@app.route('/set_naverblock<int:block_num>', methods=['GET','POST'])
+def set_naverblock(block_num):
+	resp = make_response(redirect(url_for('article_list')))
+	block_url = "block_url"+str(block_num)
+	block_url_img = "block_url_img" + str(block_num)
+	resp.set_cookie(block_url,"http://www.naver.com")
+	resp.set_cookie(block_url_img,"./static/images/naver.PNG")
+	flash(u'네이버 등록이 완료되었습니다.','success')
+
+	return resp
+
+@app.route('/set_googleblock<int:block_num>', methods=['GET','POST'])
+def set_googleblock(block_num):
+	resp = make_response(redirect(url_for('article_list')))
+	block_url = "block_url"+str(block_num)
+	block_url_img = "block_url_img" + str(block_num)
+	resp.set_cookie(block_url,"http://www.google.com")
+	resp.set_cookie(block_url_img,"./static/images/google.PNG")
+	flash(u'구글 등록이 완료되었습니다.','success')
+
+	return resp
+
+@app.route('/set_facebookblock<int:block_num>', methods=['GET','POST'])
+def set_facebookblock(block_num):
+	resp = make_response(redirect(url_for('article_list')))
+	block_url = "block_url"+str(block_num)
+	block_url_img = "block_url_img" + str(block_num)
+	resp.set_cookie(block_url,"http://www.facebook.com")
+	resp.set_cookie(block_url_img,"./static/images/facebook.PNG")
+	flash(u'facebook 등록이 완료되었습니다.','success')
+
+	return resp
+
+@app.route('/set_daumblock<int:block_num>', methods=['GET','POST'])
+def set_daumblock(block_num):
+	resp = make_response(redirect(url_for('article_list')))
+	block_url = "block_url"+str(block_num)
+	block_url_img = "block_url_img" + str(block_num)
+	resp.set_cookie(block_url,"http://www.daum.com")
+	resp.set_cookie(block_url_img,"./static/images/daum.PNG")
+	flash(u'다음 등록이 완료되었습니다.','success')
+
+	return resp
 
 @app.route('/unset_block<int:block_num>', methods=['GET','POST'])
 def unset_block(block_num):

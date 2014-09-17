@@ -8,21 +8,46 @@
         {% for row in range(division_row) %}
             {% for col in range(division_col) %}
                 
-                {% if (row*division_col)+col == 0 and url_dic["block_url0"] %}
+                {% if (row*division_col)+col == 0 and (url_dic["block_url0"] or widget_dic["block_widget0"] ) %}
                     
-                    <a href="{{ url_for('unset_block', block_num=(row*division_col)+col) }}">
-                    &times;
-                    </a>
-                    </button>
-                    <a href="{{url_dic["block_url0"]}}">
-                    <img src="./static/images/noimgage.png" class="img-rounded">
-                    </a>
+                    {% if url_dic["block_url0"] %}
+                        <a href="{{ url_for('unset_block', block_num=(row*division_col)+col) }}">
+                        &times;
+                        </a>
+                        </button>
+                        <a href="{{url_dic["block_url0"]}}">
+
+                        {% if url_dic["block_url_img0"] %}
+                            <img src="{{url_dic["block_url_img0"]}}" class="img-rounded">
+                        {% else %}  
+                            <img src="./static/images/noimgage.png" class="img-rounded">
+                        {% endif %} 
+                        
+                        </a>
+                    {% elif widget_dic["block_widget0"] %}
+                        
+                        {{ widget_dic["block_widget0"] }}
+                        
+                    {% endif %}
                     
 
-                {% elif (row*division_col)+col == 1 and url_dic["block_url1"] %}
-                    <a href="{{url_dic["block_url1"]}}">
-                    <img src="./static/images/noimgage.png" class="img-rounded">
-                    </a>
+                {% elif (row*division_col)+col == 1 and (url_dic["block_url1"] or widget_dic["block_widget1"] ) %}
+                    
+                    {% if url_dic["block_url1"] %}
+                        <a href="{{ url_for('unset_block', block_num=(row*division_col)+col) }}">
+                        &times;
+                        </a>
+                        </button>
+                        <a href="{{url_dic["block_url1"]}}">
+                        {% if url_dic["block_url_img1"] %}
+                            <img src="{{url_dic["block_url_img1"]}}" class="img-rounded">
+                        {% else %}  
+                            <img src="./static/images/noimgage.png" class="img-rounded">
+                        {% endif %}
+                        </a>
+                    {% elif widget_dic["block_widget1"] %}
+                            {{ widget_dic["block_widget1"] }}
+                    {% endif %}
                 {% elif (row*division_col)+col == 2 and url_dic["block_url2"] %}
                     <a href="{{url_dic["block_url2"]}}">
                     <img src="./static/images/noimgage.png" class="img-rounded">
