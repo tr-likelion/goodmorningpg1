@@ -1,6 +1,124 @@
 {% extends "layout.html" %}
 
 {% block contents %}
+    </br>
+    </br>
+    <div class = "division">
+    {% if division_col %}
+        {% for row in range(division_row) %}
+            {% for col in range(division_col) %}
+                
+                {% if (row*division_col)+col == 0 and (url_dic["block_url0"] or widget_dic["block_widget0"] ) %}
+                    
+                    {% if url_dic["block_url0"] %}
+                        <a href="{{ url_for('unset_block', block_num=(row*division_col)+col) }}">
+                        &times;
+                        </a>
+                        </button>
+                        <a href="{{url_dic["block_url0"]}}">
+
+                        {% if url_dic["block_url_img0"] %}
+                            <img src="{{url_dic["block_url_img0"]}}" class="img-rounded">
+                        {% else %}  
+                            <img src="./static/images/noimgage.png" class="img-rounded">
+                        {% endif %} 
+                        
+                        </a>
+                    {% elif widget_dic["block_widget0"] %}
+                        
+                        {{ widget_dic["block_widget0"] }}
+                        
+                    {% endif %}
+                    
+
+                {% elif (row*division_col)+col == 1 and (url_dic["block_url1"] or widget_dic["block_widget1"] ) %}
+                    
+                    {% if url_dic["block_url1"] %}
+                        <a href="{{ url_for('unset_block', block_num=(row*division_col)+col) }}">
+                        &times;
+                        </a>
+                        </button>
+                        <a href="{{url_dic["block_url1"]}}">
+                        {% if url_dic["block_url_img1"] %}
+                            <img src="{{url_dic["block_url_img1"]}}" class="img-rounded">
+                        {% else %}  
+                            <img src="./static/images/noimgage.png" class="img-rounded">
+                        {% endif %}
+                        </a>
+                    {% elif widget_dic["block_widget1"] %}
+                            {{ widget_dic["block_widget1"] }}
+                    {% endif %}
+                {% elif (row*division_col)+col == 2 and url_dic["block_url2"] %}
+                    <a href="{{url_dic["block_url2"]}}">
+                    <img src="./static/images/noimgage.png" class="img-rounded">
+                    </a>
+                {% elif (row*division_col)+col == 3 and url_dic["block_url3"] %}
+                    <a href="{{url_dic["block_url3"]}}">
+                    <img src="./static/images/noimgage.png" class="img-rounded">
+                    </a>
+                {% elif (row*division_col)+col == 4 and url_dic["block_url4"] %}
+                    <a href="{{url_dic["block_url4"]}}">
+                    <img src="./static/images/noimgage.png" class="img-rounded">
+                    </a>
+                {% elif (row*division_col)+col == 5 and url_dic["block_url5"] %}
+                    <a href="{{url_dic["block_url5"]}}">
+                    <img src="./static/images/noimgage.png" class="img-rounded">
+                    </a>
+                {% elif (row*division_col)+col == 6 and url_dic["block_url6"] %}
+                    <a href="{{url_dic["block_url6"]}}">
+                    <img src="./static/images/noimgage.png" class="img-rounded">
+                    </a>
+                {% elif (row*division_col)+col == 7 and url_dic["block_url7"] %}
+                    <a href="{{url_dic["block_url7"]}}">
+                    <img src="./static/images/noimgage.png" class="img-rounded">
+                    </a>
+                {% elif (row*division_col)+col == 8 and url_dic["block_url8"] %}
+                    <a href="{{url_dic["block_url8"]}}">
+                    <img src="./static/images/noimgage.png" class="img-rounded">
+                    </a>
+                {% elif (row*division_col)+col == 9 and url_dic["block_url9"] %}
+                    <a href="{{url_dic["block_url9"]}}">
+                    <img src="./static/images/noimgage.png" class="img-rounded">
+                    </a>
+                {% elif (row*division_col)+col == 10 and url_dic["block_url10"] %}
+                    <a href="{{url_dic["block_url10"]}}">
+                    <img src="./static/images/noimgage.png" class="img-rounded">
+                    </a>
+                {% elif (row*division_col)+col == 11 and url_dic["block_url11"] %}
+                    <a href="{{url_dic["block_url11"]}}">
+                    <img src="./static/images/noimgage.png" class="img-rounded">
+                    </a>
+                {% elif (row*division_col)+col == 12 and url_dic["block_url12"] %}
+                    <a href="{{url_dic["block_url12"]}}">
+                    <img src="./static/images/noimgage.png" class="img-rounded">
+                    </a>
+                {% elif (row*division_col)+col == 13 and url_dic["block_url13"] %}
+                    <a href="{{url_dic["block_url13"]}}">
+                    <img src="./static/images/noimgage.png" class="img-rounded">
+                    </a>
+                {% elif (row*division_col)+col == 14 and url_dic["block_url14"] %}
+                    <a href="{{url_dic["block_url14"]}}">
+                    <img src="./static/images/noimgage.png" class="img-rounded">
+                    </a>
+                {% elif (row*division_col)+col == 15 and url_dic["block_url15"] %}
+                    <a href="{{url_dic["block_url15"]}}">
+                    <img src="./static/images/noimgage.png" class="img-rounded">
+                    </a>
+                {% else %}      
+                    <a href="{{ url_for('set_block', block_num=(row*division_col)+col) }}">
+                    <img src="./static/images/noimgage.png" class="img-rounded">
+                    </a>
+                {% endif %}
+            {% endfor %}
+        </br>
+        {% endfor %}
+    {% endif %}
+    </div>
+
+
+
+
+
     <div class="llArticleList">
         {% if context.article_list %}
             {% for article, count in context.article_list %}

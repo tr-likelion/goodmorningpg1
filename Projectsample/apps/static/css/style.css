@@ -201,3 +201,13 @@ li.nav-menu a{
 	}
 }
 
+label.error{
+	float:left;
+}
+.division{
+	text-align: center;
+}
+.temp-widget{
+	text-align: center;	
+}
+.img-semi-rounded{border-radius:6px;margin:10px; max-width:25px;max-height:25px}

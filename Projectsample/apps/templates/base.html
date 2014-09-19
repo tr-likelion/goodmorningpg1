@@ -10,6 +10,12 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/summernote.css') }}">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" /> 
+
+
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css') }}"> <!-- CSS reset -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style_2.css') }}"> <!-- Gem style -->
+    <script src="{{ url_for('static', filename='js/modernizr.js') }}"></script> <!-- Modernizr -->
     {% block favicon %}
         <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}"/>
     {% endblock %}
@@ -19,12 +25,19 @@
 
 {% block scripts %}
     <script src="{{ url_for('static', filename='js/jquery-1.11.1.min.js') }}"></script>
-    <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
     <script src="http://code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
     <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
     <script src="{{ url_for('static', filename='js/base.js') }}"></script>
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
     <script src="{{ url_for('static', filename='js/summernote.js') }}"></script>
+
+    <!--추가-->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script> 
+    
+    <!-- JQuery validation -->
+    <script src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.validate.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery_validation.js') }}"></script>
 {% endblock %}
 </body>
 </html>
