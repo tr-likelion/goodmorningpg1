@@ -210,4 +210,19 @@ label.error{
 .temp-widget{
 	text-align: center;	
 }
-.img-semi-rounded{border-radius:6px;margin:10px; max-width:25px;max-height:25px}
+.img-semi-rounded{border-radius:6px;margin:10px; max-width:40px;max-height:40px}
+
+.img-middle-rounded{border-radius:6px;margin:10px; max-width:120px;max-height:120px}
+
+.trbox {
+    height:200px;
+    width:200px;
+    display: inline-block;
+    border: 1px solid black;
+}
+
+.semi-division{
+	display : inline;
+	position : relative;
+	float : inline;
+}

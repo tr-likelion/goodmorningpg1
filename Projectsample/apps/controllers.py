@@ -67,6 +67,7 @@ def article_list():
 	#context['article_list'] = Article.query.order_by(desc(Article.date_created)).all()
 	division_row = request.cookies.get('division_row')
 	division_col = request.cookies.get('division_col')
+	search = request.cookies.get('search')
 	url_dic = {}
 	widget_dic = {}
 	if division_row:
@@ -87,7 +88,7 @@ def article_list():
 
 
 	if division_row or division_col:
-		return render_template("home.html", context=context, active_tab='timeline', division_row = division_row , division_col = division_col,url_dic = url_dic, widget_dic = widget_dic)
+		return render_template("home.html", context=context, active_tab='timeline', division_row = division_row , division_col = division_col,url_dic = url_dic, widget_dic = widget_dic, search = search)
 
 	return render_template('home.html', context=context, active_tab='timeline')
 
@@ -281,6 +282,11 @@ def log_out():
 	session.clear()
 	#if GET
 	return redirect(url_for('article_list'))
+
+
+
+
+
 
 #
 # @error Handlers

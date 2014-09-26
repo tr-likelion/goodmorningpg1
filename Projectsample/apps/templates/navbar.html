@@ -16,13 +16,13 @@
 
 	  	<div class = "navbar-brand example_2">
 	  		<a href="{{ url_for('article_create') }}" class = "example_4">
-	  			<div class = "navbar-brand example">
+	  			<div class = "navbar-brand example" style = "font-family: malgun">
 	  				샘플화면
 	  			</div>
 	  		</a>
 
 	  		<a href="" class = "example_4">
-	  			<div class = "navbar-brand example">
+	  			<div class = "navbar-brand example" style = "font-family: malgun">
 	  				사용법/QnA
 	  			</div>
 	  		</a>
@@ -32,15 +32,15 @@
 	<!-- Collect the nav links, forms, and other content for toggling -->
 	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	  		<ul class="nav navbar-nav navbar-right">
-		  		<div class="user-nav">
+		  		<div class="user-nav" >
 					<li>
 					
 					{% if g.user_name %}
 					<a href="">{{g.user_email}}</a>
 					<a href="{{ url_for('log_out')}}">로그아웃</a>
 					{% else%}
-					<a class = "cd-signin" href="#">로그인</a>
-					<a class = "cd-signup" href="#">회원가입</a>
+					<a class = "cd-signin" style = "font-family: malgun" href="#">로그인</a>
+					<a class = "cd-signup" style = "font-family: malgun" href="#">회원가입</a>
 					{% endif%}
 					</li>
 				</div>
@@ -128,7 +128,7 @@
 	              	<a href="">
 	            		<img src="{{ url_for('static', filename='images/edit_bookmark.png') }}" class="nav-menu-img tool show_web">
 	            	</a>
-	            	<a href="">
+	            	<a href="{{ url_for('make_widget') }}">
 	            		<img src="{{ url_for('static', filename='images/edit_widget.png') }}" class="nav-menu-img tool show_web">
 	            	</a>
 	            	

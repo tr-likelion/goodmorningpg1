@@ -27,6 +27,21 @@ jQuery(document).ready(function($){
 
 	});
 
+	$('#btn_reserve').click(function(){
+      var keyword = $('#input_url').val();
+      var url = "";
+      if(keyword == ""){
+         url += "http://www.naver.com/"
+      }
+      else{
+         url += "http://search.naver.com/search.naver?where=nexearch&query=";
+         url += keyword;
+         url += "&sm=top_hty&fbm=2&ie=utf8";
+      }
+
+      window.open(url);
+   });
+
 	//close modal
 	$('.cd-user-modal').on('click', function(event){
 		if( $(event.target).is($form_modal) || $(event.target).is('.cd-close-form') ) {
@@ -70,6 +85,8 @@ jQuery(document).ready(function($){
 		login_selected();
 	});
 
+
+
 	function login_selected(){
 		$form_login.addClass('is-selected');
 		$form_signup.removeClass('is-selected');
@@ -91,6 +108,7 @@ jQuery(document).ready(function($){
 		$form_signup.removeClass('is-selected');
 		$form_forgot_password.addClass('is-selected');
 	}
+
 /*
 	//REMOVE THIS - it's just to show error messages 
 	$form_login.find('input[type="submit"]').on('click', function(event){
@@ -146,3 +164,6 @@ jQuery.fn.putCursorAtEnd = function() {
     	}
 	});
 };
+
+
+

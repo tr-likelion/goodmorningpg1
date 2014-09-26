@@ -35,11 +35,6 @@ def make_division():
 		flash(u'화면분할이 완료되었습니다.','success')
 		return resp
 
-@app.route('/make_division_ajax', methods=['GET','POST'])
-def make_division_ajax():
-
-	return jsonify(id = "a")
-
 
 @app.route('/unset_division', methods=['GET'])
 def unset_division():
@@ -133,9 +128,42 @@ def set_daumblock(block_num):
 	resp = make_response(redirect(url_for('article_list')))
 	block_url = "block_url"+str(block_num)
 	block_url_img = "block_url_img" + str(block_num)
-	resp.set_cookie(block_url,"http://www.daum.com")
+	resp.set_cookie(block_url,"http://www.daum.net")
 	resp.set_cookie(block_url_img,"./static/images/daum.PNG")
 	flash(u'다음 등록이 완료되었습니다.','success')
+
+	return resp
+
+@app.route('/set_youtubeblock<int:block_num>', methods=['GET','POST'])
+def set_youtubeblock(block_num):
+	resp = make_response(redirect(url_for('article_list')))
+	block_url = "block_url"+str(block_num)
+	block_url_img = "block_url_img" + str(block_num)
+	resp.set_cookie(block_url,"http://www.youtube.com")
+	resp.set_cookie(block_url_img,"./static/images/youtube.jpg")
+	flash(u'YouTube 등록이 완료되었습니다.','success')
+
+	return resp
+
+@app.route('/set_twitterblock<int:block_num>', methods=['GET','POST'])
+def set_twitterblock(block_num):
+	resp = make_response(redirect(url_for('article_list')))
+	block_url = "block_url"+str(block_num)
+	block_url_img = "block_url_img" + str(block_num)
+	resp.set_cookie(block_url,"https://twitter.com")
+	resp.set_cookie(block_url_img,"./static/images/twitter.jpg")
+	flash(u'트위터 등록이 완료되었습니다.','success')
+
+	return resp
+
+@app.route('/set_instagramblock<int:block_num>', methods=['GET','POST'])
+def set_instagramblock(block_num):
+	resp = make_response(redirect(url_for('article_list')))
+	block_url = "block_url"+str(block_num)
+	block_url_img = "block_url_img" + str(block_num)
+	resp.set_cookie(block_url,"http://korstagram.com")
+	resp.set_cookie(block_url_img,"./static/images/instagram.png")
+	flash(u'인스타그램 등록이 완료되었습니다.','success')
 
 	return resp
 
