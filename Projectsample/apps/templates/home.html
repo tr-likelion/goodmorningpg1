@@ -9,8 +9,13 @@
         <div class = "indivision">
             <img src="./static/images/naver_logo.PNG" class="naver-logo">
             <input type="text" class="greenbox" name="text" id = "input_url" maxlength="255">
-            <button type="submit" class="naver-search" id = "btn_reserve"></button>
-
+            <button type="submit" class="naver-search" id = "naver_btn_reserve"></button>
+        </div>
+    {% elif search == "google" %}
+        <div class = "indivision">
+            <img src="./static/images/google_logo.PNG" class="google-logo">
+            <input type="text" class="googlebox" name="text" id = "input_url" maxlength="255">
+            <a class="detail-btn-title" id="google_btn_reserve"><img src="./static/images/google_button.PNG" class="google-search"></a>
         </div>
 
     {% endif %}

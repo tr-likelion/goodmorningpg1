@@ -19,4 +19,11 @@ def set_naversearch():
 	resp.set_cookie('search',"naver")
 	flash(u'네이버 위젯 등록이 완료되었습니다.','success')
 	return resp
+
+@app.route('/set_googlesearch', methods=['GET','POST'])
+def set_googlesearch():
+	resp = make_response(redirect(url_for('article_list')))
+	resp.set_cookie('search',"google")
+	flash(u'구글 위젯 등록이 완료되었습니다.','success')
+	return resp
 	

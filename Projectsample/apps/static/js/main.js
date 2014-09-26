@@ -27,7 +27,7 @@ jQuery(document).ready(function($){
 
 	});
 
-	$('#btn_reserve').click(function(){
+	$('#naver_btn_reserve').click(function(){
       var keyword = $('#input_url').val();
       var url = "";
       if(keyword == ""){
@@ -37,6 +37,22 @@ jQuery(document).ready(function($){
          url += "http://search.naver.com/search.naver?where=nexearch&query=";
          url += keyword;
          url += "&sm=top_hty&fbm=2&ie=utf8";
+      }
+
+      window.open(url);
+   });
+	$('#google_btn_reserve').click(function(){
+      var keyword = $('#input_url').val();
+      var url = "";
+      if(keyword == ""){
+         url += "http://www.google.com/"
+      }
+      else{
+         url += "https://www.google.co.kr/search?q=";
+         url += keyword;
+         url += "&oq="
+         url += keyword;
+         url += "&aqs=chrome..69i57j0l5.1251j0j8&sourceid=chrome&es_sm=93&ie=UTF-8"
       }
 
       window.open(url);
