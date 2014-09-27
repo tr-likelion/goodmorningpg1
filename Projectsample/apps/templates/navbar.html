@@ -16,14 +16,14 @@
 
 	  	<div class = "navbar-brand example_2">
 	  		<a href="{{ url_for('article_create') }}" class = "example_4">
-	  			<div class = "navbar-brand example" style = "font-family: malgun">
-	  				샘플화면
+	  			<div class = "navbar-brand example">
+	  				Layout Samples
 	  			</div>
 	  		</a>
 
 	  		<a href="" class = "example_4">
-	  			<div class = "navbar-brand example" style = "font-family: malgun">
-	  				사용법/QnA
+	  			<div class = "navbar-brand example">
+	  				Manual / QnA
 	  			</div>
 	  		</a>
 	  	</div>
@@ -39,8 +39,8 @@
 					<a href="">{{g.user_email}}</a>
 					<a href="{{ url_for('log_out')}}">로그아웃</a>
 					{% else%}
-					<a class = "cd-signin" style = "font-family: malgun" href="#">로그인</a>
-					<a class = "cd-signup" style = "font-family: malgun" href="#">회원가입</a>
+					<a class = "cd-signin" href="#">로그인</a>
+					<a class = "cd-signup" href="#">회원가입</a>
 					{% endif%}
 					</li>
 				</div>
